@@ -17,10 +17,12 @@ function imageChangeNext () {
     if (i < myImages.length - 1) {
         i++;
         selectedImage.src = myImages[i]; 
-    } else {
+        nextButton.disabled = false;
+    } else if (i = myImages.length - 1) {
         nextButton.disabled = true;
         i--;
-    }
+        prevButton.disabled = false;
+    } else if (i > 1 )
     return selectedImage;
 }
 
@@ -28,9 +30,11 @@ function imageChangePrev () {
     if (i < myImages.length - 1 && i > 0) {
         i--;
         selectedImage.src = myImages[i]; 
+        prevButton.disabled = false;
     } else {
         prevButton.disabled = true;
         i++;
+        nextButton.disabled = false;
     }
     return selectedImage;
 }
